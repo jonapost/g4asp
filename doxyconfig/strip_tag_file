@@ -1,0 +1,1 @@
+sed -e '/^      </d' -e '/<member/d' -e '/member>/d' -e '/<path>/d' geant4.tag > geant4_short.tag

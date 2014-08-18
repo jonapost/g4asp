@@ -1,0 +1,138 @@
+// $Id: exerciseDocu.doxy 118 2010-02-03 15:02:48Z gunter $
+
+/**
+ \mainpage task1 Task 1 Exercises Geant4 Physics
+
+\section s1 OBJECTIVE
+
+Understand of processes and models active in one physics list
+
+  - Check which processes are attached to pion, proton, and neutron
+ 
+
+Visualize hadronic showers, and get impression on difference of EM and hadronic 
+showers.
+
+  - shower shape
+  - shower start
+  - particle composition of showers
+
+ 
+\section s2 HOW
+
+  - prepare the environment (tell the Geant4 build system where to find things):
+\verbatim
+       % source ~/geant4.sh
+\endverbatim
+
+    If this does not work, instead say
+\verbatim
+       % source /usr/local/share/geant4/geant4.sh
+\endverbatim
+*/
+
+//  ALTERNATIVE:
+//	% wget http://cern.ch/adotti/setupG4.sh
+//	% source setupG4.sh
+
+/**
+  - get the source code 
+\verbatim
+        % cp /usr/local/share/geant4/tasks/task1.tgz . 
+	% wget http://cern.ch/adotti/task1.tgz
+\endverbatim
+
+  - unpack it
+\verbatim
+	% tar -xzf task1.tgz
+\endverbatim
+
+  - see what it has created in your directory:
+\verbatim
+	% ls
+        % ls task1
+\endverbatim
+
+  - compile and generate an executable:
+\verbatim
+        % cd task1
+	% make
+\endverbatim
+  - and run it: 
+\verbatim
+	% task1
+	% task1
+\endverbatim
+
+  
+\section s3a PRACTICE
+
+\subsection s3asub1 Exercise 1.0: Learn about processes
+
+     Try to understand the processes attached to pi-, proton, and 
+     neutron. Are there differences, if so why?
+     
+     The command /process/list will show processes for all particles. To
+     see processes fro a single particle, run task1, and study the commands 
+     /particles/process/dump, and /particle/select. To inspect the processes 
+     assigned to pi-, use
+     \verbatim
+	/particle/select pi-
+	/particle/process/dump -1
+     \endverbatim
+
+     As and example, the difference of processes between pi+ and pi- is 
+     the additional CaptureAtRest process for the negative pion.
+ 
+\subsection s3asub2 Exercise 1.1: Models within processes
+
+     The Geant4 particle and process commands do not (yet) allow to inspect the 
+     models and cross-section used within the process. This information is 
+     printed by default at the start of a run, for selected particles.
+     Locate this output searching for "HADRONIC PROCESSES SUMMARY". For a pion,
+     understand which models are used for inelastic interactions. To get this
+     output, you have to start a run:
+     \verbatim
+      % $G4BIN/$G4SYSTEM/task1
+      at the prompt type
+        /run/beamOn 0
+     \endverbatim
+     
+     Optional: To see the processes/models for all particles, you need to change
+     the verbosity level for G4HadronicProcessStore. To do so, uncomment the
+     relevant line in task1.cc, rebuild, and re-run.  
+
+\subsection s3bsub1 Exercise 1.2
+
+     Start to understand differences of the showershape
+     using task5 to run a few events using electrons and pi+ as primary
+     particles, using  1 GeV kinetic energy for the primary. To get a better 
+     idea about different particle types there is a macro particleColour.mac
+     setting the colour of tracks according to particle type.
+     
+     Study the particleColour.mac macro to understand the colours used for
+     different particles.
+     
+     To run task5 for five events each, do
+     
+     \verbatim
+     $G4BIN/$G4SYSTEM/task1
+        at the prompt type
+     /control/execute particleColour.mac
+     /gps/particle e-
+     /gps/energy 1 GeV
+     
+     /run/beamOn 5
+     
+     /gps/particle pi-
+     /run/beamOn 5
+     
+     \endverbatim
+     
+     You will find EM showers mostly gray,i.e. gamma, and hadronic showers
+     mostly green, i.e. neutrons. These domination is mostly due to low energy
+     particles. Neutrons and gamma do not loose energy due to ionisation, and
+     the lower cross sestion for other interactions results in larger pathlength. 
+
+
+*/

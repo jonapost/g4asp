@@ -1,0 +1,12 @@
+div.tabs {
+    display: none;
+}
+div.navigation {
+    display: none;
+}
+div.footer {
+    display: none;
+}
+div.onlyprint {
+    display: block;
+}

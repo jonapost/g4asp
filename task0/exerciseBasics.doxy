@@ -1,0 +1,114 @@
+// $Id: exerciseBasics.doxy 118 2010-02-03 15:02:48Z gunter $
+
+/**
+ \page intro Task 0.a Geant4 Basics
+
+\section s1 OBJECTIVE
+
+Run and examine a basic Geant4 example.
+ 
+\section s2 HOW
+
+  For background information see 
+  <a href="http://cern.ch/geant4/support/gettingstarted.shtml">Getting Started</a>
+  Geant4 user documentation. 
+
+  To start the tutorial log into the server using ssh
+\verbatim
+        %  ssh  -X userid@10.0.0.252 
+\endverbatim
+  where 'userid' is the name of your account on the server.
+  Note that the '-X' option will allow you to send images back to your 
+  computer/screen (using the X11 protocol.)
+
+  Then create an empty directory you will use for all exercises 
+  and use the commmand 'cd' to go to it.
+\verbatim
+        % mkdir g4asp2014
+        % cd g4asp2014
+\endverbatim
+
+  To start Geant4 a set of environment variables should be defined. 
+  For the purposes of the tutorial, Geant4 and ROOT environment variables
+  are initialised in a shell script.
+
+  To make this easy, I suggest to you to create a link to this file in
+  your own directory, 
+\verbatim
+       % ln -s /usr/local/share/geant4/geant4.sh ~/geant4.sh
+\endverbatim
+  Once you do this you will be able to configure to use this G4 installation by saying :
+\verbatim
+       % source ~/geant4.sh
+\endverbatim
+
+  You need to run this script each time you login (or create a new window)
+  in order to define these key variables.
+
+*/ 
+//  Excluded text: 
+//  Proposed alternative:  http://bit.ly/g4asp2014sh
+//
+//  You can also include this in the commands which is auto-run when you login.
+//  After this it will be available after each login.
+
+/**
+\verbatim
+        % env | grep G4
+        % env | grep ROOT
+\endverbatim
+
+\section s3 PRACTICE
+
+\section  s3sub1 Exercise 0.1 : Geant4 environment
+
+  Study the most important Geant4 environment variables and basic structure of
+directories.
+\verbatim
+        % echo $G4INSTALL
+        % ls   $G4INSTALL
+
+        % echo $CLHEP_BASE_DIR
+        % echo $G4SYSTEM
+        % echo $G4WORKDIR
+\endverbatim
+
+  \section s3sub2 Exercise 0.2 : compile and run basic example B1
+  
+  Copy example from the repository to the local place compile and run.
+\verbatim
+        % cp -r $G4INSTALL/examples/basic/B1 ./
+        % cd B1
+        % gmake
+        % ls $G4WORKDIR 
+        % ls $G4WORKDIR/bin/Linux-g++/
+        % $G4WORKDIR/bin/Linux-g++/exampleB1 
+\endverbatim
+\verbatim
+        Idle> cd /gun
+        Idle> ?particle
+        Idle> /gun/particle proton
+        Idle> ?particle
+        Idle> ?energy
+        Idle> /gun/energy 2 GeV
+        Idle> /run/beamOn 1
+        Idle> /gun/particle gamma
+        Idle> /run/beamOn 1
+        Idle> /gun/particle mu+
+        Idle> /tracking/verbose 1
+        Idle> /run/beamOn 1
+\endverbatim
+
+  \section s3sub3 Exercise 0.3 : study basic example B1
+
+  Try to understand the structure of the example. Which classes are mandatory?
+\verbatim
+        % ls
+        % less README
+        % less exampleB1.cc
+        % ls include
+        % ls src
+\endverbatim
+
+
+*/

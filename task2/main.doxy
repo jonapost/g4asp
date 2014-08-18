@@ -1,0 +1,158 @@
+// $Id: exerciseField.doxy 118 2010-02-03 15:02:48Z gunter $
+
+/**
+ \mainpage Task 2 Geant4 Scoring
+
+\section t4es1 OBJECTIVE
+
+This exersize shows how to use command-based scoring fanctionality.
+You will "score" the particle flux and energy deposition in the
+scoring mesh, which is located at EM/HAD calorimeters. 
+After the event loop, you will visualize the scores and also dump
+scored values into a file.
+
+To use this functionality, you have to have G4ScoringManager::GetScotingManager() 
+method must be invoked from your main().
+
+\verbatim
+#include "G4ScoringManager.hh"
+int main()
+{
+  G4RunManager* runManager = new G4RunManager;
+  G4ScoringManager* scoringManager = 
+         G4ScoringManager::GetScoringManager();
+\endverbatim
+
+\section t4es2 HOW
+
+Take a look at task2.cc file, check that the G4ScoringManager has been initialized. You will need to use UI commands to do this exercise, no further code modifications are needed.
+
+\section t4es3a PRACTICE
+
+To run and compile the application:
+
+If needed:
+\verbatim
+    % source ~/geant4.sh
+\endverbatim
+If this does not work, please go back to task 0 and make sure that your setup is correct.
+
+Then get the source file
+\verbatim
+    % wget -O task2.tgz http://bit.ly/g4asp14t2
+\endverbatim
+In case this fails please try instead:
+\verbatim
+    % wget http://bit.ly/g4asp14t2
+    % mv g4asp14t2 task2.tgz
+\endverbatim
+Else you do the same by copying and pasting the full path (if you are very security conscious e.g.) : 
+\verbatim
+    % wget https://dl.dropboxusercontent.com/u/540317/ASP2014/Tasks-source/task2.tgz
+\endverbatim
+
+Now that you have the source code, you can extract it from the tar file, change into its directory and compile/link it:
+\verbatim
+    % tar -xzf task2.tgz
+    % cd task2
+    % gmake
+\endverbatim
+
+You should have the executable now: 
+\verbatim
+    % ls -l $G4BIN/task2
+    % find $G4BIN `echo $PATH|perl -pe 's#:# #g;'` -name task2
+\endverbatim
+
+Run the executable
+\verbatim
+    % task2
+\endverbatim
+
+Aside: 
+
+The environment variable PATH contains the list of directories in which your shell will
+look for executable files.  
+\verbatim
+    % echo $PATH | perl -pe 's#:# #g;'
+\endverbatim
+Any program that you shell executes must reside in a
+directory in this 'path' - except if you tell it exactly where to look:
+\verbatim
+    % $G4BIN/task2
+    % ./compile_script.sh
+    % ../bin/shell_script.sh
+    % /bin/ls -l 
+\endverbatim
+
+\subsection  t4es3asub1 Exercise 2.1 : Create a scoring mesh
+
+Once you execute "task4e" you will see the Idle> prompt.
+Enter the following UI commands to define the scoring mesh and scorers.
+
+\verbatim
+  #
+  # define scoring mesh
+  #
+  /score/create/boxMesh boxMesh_1
+  #
+  /score/mesh/boxSize 25. 25. 25. cm
+  /score/mesh/nBin 30 30 30
+  #
+  # define scorers
+  #
+  /score/quantity/energyDeposit eDep
+  /score/quantity/passageCellCurrent totalCurrent 1
+  /score/quantity/passageCellCurrent epCurrent 1
+  /score/filter/particle epFilter e- e+
+  #
+  /score/close
+  #
+  /score/list
+  #
+  /run/beamOn 20
+  #
+\endverbatim
+
+\subsection  t4es3asub2 Exercise 2.2 : Draw scoring mesh
+
+After the event loop, enter the following UI commands to visualize the scores.
+
+\verbatim
+  #
+  # projection views
+  #
+  /vis/viewer/set/targetPoint 0 0 0 cm 
+  /vis/viewer/zoom 4
+  # If the visualization window does not change click on it!
+  #
+  /score/drawProjection boxMesh_1 eDep
+  #
+  /score/drawProjection boxMesh_1 totalCurrent logColorMap
+  #
+  /score/drawProjection boxMesh_1 epCurrent logColorMap
+  #
+  # sliced views
+  #
+  /vis/scene/create
+  /vis/sceneHandler/attach scene-1
+  /vis/viewer/set/viewpointThetaPhi 100 160 deg
+  #
+  # If the visualization window does not change click on it!  
+  /control/loop drawSlice.mac iColumn 0 29 7
+  #
+\endverbatim
+
+\subsection  t4es3asub2 Exercise 2.3 : Dump scoring on file
+
+Also, you can dump the score to a file
+
+\verbatim
+  #
+  # Dump a score to a file
+  #
+  /score/dumpQuantityToFile boxMesh_1 eDep eDep.data
+  #
+\endverbatim
+
+*/

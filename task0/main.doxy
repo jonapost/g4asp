@@ -1,0 +1,20 @@
+// $Id: main.doxy 118 2010-02-03 15:02:48Z gunter $
+
+/**
+ \mainpage Task 0
+
+ \section Objective
+  Get first experience with Geant4, learn
+  - how to compile and run an example
+  - where to look for further information
+
+ \section Exercises
+
+  - \subpage intro
+  - \subpage docu
+
+ \section General
+ 
+  - \subpage overview
+  
+*/
