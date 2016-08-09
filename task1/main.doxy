@@ -25,20 +25,16 @@ showers.
 
     If this does not work, instead say
 \verbatim
-       % source /usr/local/share/geant4/geant4.sh
+       % source ~/geant4/setupG4.sh
 \endverbatim
 
-  - get the source code 
+  - get the source code of the task1
 \verbatim
-	% wget -O task1.tgz http://bit.ly/g4asp14t1
+	% wget -O task1.tgz http://bit.ly/g4asp16task1
 \endverbatim
     or if you prefer the full URL (to copy and paste)
 \verbatim
-        % wget https://dl.dropboxusercontent.com/u/540317/ASP2014/Tasks-source/task1.tgz
-\endverbatim
-    You can copy from the server too, if you use the following instead:
-\verbatim
-        % cp /usr/local/share/geant4/tasks/task1.tgz . 
+        % wget https://dl.dropboxusercontent.com/u/540317/ASP2016/Tasks-source/task1.tgz
 \endverbatim
 
   - check to see that you succeeded to download this file:
@@ -47,13 +43,13 @@ showers.
         % ls -l task1.tgz
 \endverbatim
 You should expect to see output similar to the following (this is in the
-Dropbox directory on August 18th at 16:15 UTC: 
+Dropbox directory on August 10th at 8:15 UTC: 
 \verbatim
    % ls -l
    total 176
-   -rw-r--r--  1 japost  staff  13570 Aug 16 10:37 task1.tgz
-   -rw-r--r--  1 japost  staff  41902 Aug 18 16:13 task2.gtz
-   -rw-r--r--  1 japost  staff  28005 Aug 18 16:13 task3.gtz
+   -rw-r--r--  1 japost  staff  13570 Aug 09 10:37 task1.tgz
+   -rw-r--r--  1 japost  staff  41902 Aug 09 16:13 task2.gtz
+   -rw-r--r--  1 japost  staff  28005 Aug 09 16:13 task3.gtz
 \endverbatim
 
   - unpack it
@@ -116,7 +112,7 @@ Dropbox directory on August 18th at 16:15 UTC:
 	/particle/process/dump -1
      \endverbatim
 
-     As and example, the difference of processes between pi+ and pi- is 
+     As an example, the difference of processes between pi+ and pi- is 
      the additional CaptureAtRest process for the negative pion.
  
 \subsection s3asub2 Exercise 1.1: Models within processes
@@ -128,9 +124,9 @@ Dropbox directory on August 18th at 16:15 UTC:
      understand which models are used for inelastic interactions. To get this
      output, you have to start a run:
      \verbatim
-      % $G4BIN/$G4SYSTEM/task1
+        % $G4BIN/task1
       at the prompt type
-        /run/beamOn 0
+          /run/beamOn 0
      \endverbatim
      
      Optional: To see the processes/models for all particles, you need to change

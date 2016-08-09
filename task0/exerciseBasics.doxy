@@ -13,19 +13,13 @@ Run and examine a basic Geant4 example.
   <a href="http://cern.ch/geant4/support/gettingstarted.shtml">Getting Started</a>
   Geant4 user documentation. 
 
-  To start the tutorial log into the server using ssh
-\verbatim
-        %  ssh  -X userid@10.0.0.252 
-\endverbatim
-  where 'userid' is the name of your account on the server.
-  Note that the '-X' option will allow you to send images back to your 
-  computer/screen (using the X11 protocol.)
+  To start the tutorial log in to your machine.
 
   Then create an empty directory you will use for all exercises 
   and use the commmand 'cd' to go to it.
 \verbatim
-        % mkdir g4asp2014
-        % cd g4asp2014
+        % mkdir g4asp2016
+        % cd g4asp2016
 \endverbatim
 
   To start Geant4 a set of environment variables should be defined. 
@@ -35,24 +29,34 @@ Run and examine a basic Geant4 example.
   To make this easy, I suggest to you to create a link to this file in
   your own directory, 
 \verbatim
-       % ln -s /usr/local/share/geant4/geant4.sh ~/geant4.sh
+       % ln -s ~/geant4/setupGeant4.sh ~/geant4.sh
 \endverbatim
-  Once you do this you will be able to configure to use this G4 installation by saying :
+  Once you do this you will be able to configure to use this G4 installation by running a script file :
 \verbatim
        % source ~/geant4.sh
 \endverbatim
+ if you managed to create the link above, or else
+\verbatim       
+       % source ~/geant4/setupGeant4.sh
+\endverbatim
+  instead.
 
-  You need to run this script each time you login (or create a new window)
-  in order to define these key variables.
+  Then use the command it created 'setupG4' to set up your Geant4 installation
+\verbatim
+       % setupG4
+\endverbatim
+
+  You need to run these two commands each time you login (or create a new window)
+  in order to define the key installation variables for Geant4.
 
 */ 
 //  Excluded text: 
-//  Proposed alternative:  http://bit.ly/g4asp2014sh
+//  Proposed alternative:  http://bit.ly/g4asp2016sh
 //
 //  You can also include this in the commands which is auto-run when you login.
 //  After this it will be available after each login.
 
-/**
+  You can check their values using the following:
 \verbatim
         % env | grep G4
         % env | grep ROOT
@@ -65,38 +69,54 @@ Run and examine a basic Geant4 example.
   Study the most important Geant4 environment variables and basic structure of
 directories.
 \verbatim
-        % echo $G4INSTALL
-        % ls   $G4INSTALL
+        % echo $G4INSTALL_DIR
+        % ls   $G4INSTALL_DIR
 
-        % echo $CLHEP_BASE_DIR
         % echo $G4SYSTEM
         % echo $G4WORKDIR
 \endverbatim
+
+   //   % echo $CLHEP_BASE_DIR
 
   \section s3sub2 Exercise 0.2 : compile and run basic example B1
   
   Copy example from the repository to the local place compile and run.
 \verbatim
-        % cp -r $G4INSTALL/examples/basic/B1 ./
+        % cp -r $G4INSTALL_DIR/examples/basic/B1 ./
         % cd B1
         % gmake
+        % ls -l 
         % ls $G4WORKDIR 
-        % ls $G4WORKDIR/bin/Linux-g++/
+        % ls -l $G4WORKDIR/bin/Linux-g++/
         % $G4WORKDIR/bin/Linux-g++/exampleB1 
 \endverbatim
+
+  You will get a prompt from your Geant4 application now.  Please type the following
+  to check the initial particle's type and energy
 \verbatim
         Idle> cd /gun
         Idle> ?particle
+        Idle> ?energy        
+\endverbatim
+  and change its type to a proton, and its energy to 2 GeV :
+\verbatim        
         Idle> /gun/particle proton
         Idle> ?particle
-        Idle> ?energy
         Idle> /gun/energy 2 GeV
+        Idle> ?energy        
+\endverbatim
+  and then launch a simulation of one event:
+\verbatim        
         Idle> /run/beamOn 1
+\endverbatim
+  Now you can experiment running a simulation with different particle types:        
+\verbatim                
         Idle> /gun/particle gamma
         Idle> /run/beamOn 1
         Idle> /gun/particle mu+
         Idle> /tracking/verbose 1
         Idle> /run/beamOn 1
+        Idle> /tracking/verbose 1
 \endverbatim
 
   \section s3sub3 Exercise 0.3 : study basic example B1
@@ -109,6 +129,5 @@ directories.
         % ls include
         % ls src
 \endverbatim
-
 
 */
