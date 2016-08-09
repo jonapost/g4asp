@@ -8,7 +8,6 @@
 Understand of processes and models active in one physics list
 
   - Check which processes are attached to pion, proton, and neutron
- 
 
 Visualize hadronic showers, and get impression on difference of EM and hadronic 
 showers.
@@ -16,7 +15,6 @@ showers.
   - shower shape
   - shower start
   - particle composition of showers
-
  
 \section s2 HOW
 
@@ -32,15 +30,30 @@ showers.
 
   - get the source code 
 \verbatim
-	% wget http://bit.ly/g4asp14t1
-\endverbatime
+	% wget -O task1.tgz http://bit.ly/g4asp14t1
+\endverbatim
     or if you prefer the full URL (to copy and paste)
-\verbatime
+\verbatim
         % wget https://dl.dropboxusercontent.com/u/540317/ASP2014/Tasks-source/task1.tgz
 \endverbatim
-     I will also copy it to the server, so that you can use the following instead:
+    You can copy from the server too, if you use the following instead:
 \verbatim
         % cp /usr/local/share/geant4/tasks/task1.tgz . 
+\endverbatim
+
+  - check to see that you succeeded to download this file:
+\verbatim
+        % ls -l 
+        % ls -l task1.tgz
+\endverbatim
+You should expect to see output similar to the following (this is in the
+Dropbox directory on August 18th at 16:15 UTC: 
+\verbatim
+   % ls -l
+   total 176
+   -rw-r--r--  1 japost  staff  13570 Aug 16 10:37 task1.tgz
+   -rw-r--r--  1 japost  staff  41902 Aug 18 16:13 task2.gtz
+   -rw-r--r--  1 japost  staff  28005 Aug 18 16:13 task3.gtz
 \endverbatim
 
   - unpack it

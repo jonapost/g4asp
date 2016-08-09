@@ -44,6 +44,7 @@ Then get the source file
 In case this fails please try instead:
 \verbatim
     % wget http://bit.ly/g4asp14t2
+    % ls -l 
     % mv g4asp14t2 task2.tgz
 \endverbatim
 Else you do the same by copying and pasting the full path (if you are very security conscious e.g.) : 
