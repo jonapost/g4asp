@@ -38,7 +38,7 @@ PROJECT_NAME           = "xyz"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = "Geant4 tutorial, ASP2014"
+PROJECT_NUMBER         = "Geant4 tutorial, ASP2016"
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
@@ -1989,7 +1989,7 @@ SKIP_FUNCTION_MACROS   = YES
 # the path). If a tag file is not located in the directory in which doxygen is
 # run, you must also specify the path to the tagfile here.
 
-TAGFILES               = ../doxyconfig/geant4_short.tag=http://www-geant4.kek.jp/Reference/9.3 \
+TAGFILES               = ../doxyconfig/geant4_short.tag=http://www-geant4.kek.jp/Reference/ \
                          ../doxyconfig/clhep.tag=http://www-zeuthen.desy.de/ILC/geant4/clhep-2.0.4.3
 
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
@@ -2086,7 +2086,8 @@ DOT_NUM_THREADS        = 0
 # The default value is: Helvetica.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-DOT_FONTNAME           = FreeSans
+# Old: DOT_FONTNAME        = FreeSans      ## Changed 2016.08.18 - No longer ships with Doxygen
+DOT_FONTNAME           = 
 
 # The DOT_FONTSIZE tag can be used to set the size (in points) of the font of
 # dot graphs.
