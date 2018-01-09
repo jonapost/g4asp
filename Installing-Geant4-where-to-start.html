@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>Installing Geant4 - key starting points</title>
+</head>
+<h1>Installing Geant4</h1>
+
+<h2>1. Using a Geant4 virtual machine</h2>
+This is the simplest option, as it avoids the effort to find and install the
+key pieces needed to create an installation on your own system.
+
+<ul>
+  <li>
+    Make sure that your computer meets the minimum requirements:
+    <ul>
+      <li> Windows or Linux users : desktop or laptop PC running Windows or Linux
+	with a virtualization software installed </li>
+      <li> Mac users : desktop or laptop Mac running Mac OS with a virtualization software installed
+      <li> 30 GB of free disk space available </li>
+      <li> at least 2 GB of RAM 'free' on the PC or Mac </li>
+    </ul>
+      If the laptop does not meeting these requirements, the alternatives are
+      a smaller virtual machine (option 2 below) or a native  installation (option 3.)
+     
+    </li>
+
+  <li> Obtain a Virtual Machine 'player'. 
+    You can use either the free
+       <a href="https://www.virtualbox.org/">Virtual Box</a> software    
+       or VMware software: <a href="https://www.vmware.com/products/workstation-player.html"> Workstation Player</a> on Windows, or
+     <a href="https://www.vmware.com/products/fusion.html">Fusion</a> on Mac.
+
+    For further details see http://geant4.in2p3.fr/spip.php?article65 .
+  </li>
+
+  <li> Download the Geant4 Virtual Machine
+    from <a href="http://geant4.in2p3.fr/spip.php?rubrique8">
+      http://geant4.in2p3.fr/spip.php?rubrique8</a>
+    or directly at <a href="ftp://ftp.cenbg.in2p3.fr/info/Vmware/geant4.10.03.p02/">
+      ftp://ftp.cenbg.in2p3.fr/info/Vmware/geant4.10.03.p02/ </a>
+  </li>
+
+  <li> Simple instructions on opening an image using Virtual Box can be found
+	at <a href="https://www.osboxes.org/guide/">https://www.osboxes.org/guide/</a>
+        Don't forget to select 2048 MB of RAM memory.</li>   
+</ul>
+
+<h2>2. Using a recent Linux Virtual Machine, and building Geant4 inside it</h2>
+
+This is a hybrid method, which requires less disk space than the pre-built
+Geant4 virtual machine, ( approximately 5 GBytes ), and uses 
+
+<ul>
+  <li> Obtain a Virtual Machine 'player'. See above (option 1) how to do
+  this. </li>
+  <li> Obtain a recent version of Linux to run inside a Virtual Machine host:
+    <ul>
+      <li> I found such images at <a href="http://www.osboxes.org/">
+	    http://www.osboxes.org/</a>
+      </li>
+      <li> Some reasonable choices: <a href="https://www.osboxes.org/ubuntu/">Ubuntu</a> 17.04 or 17.10, or
+	   <a href="https://www.osboxes.org/centos/">Centos 7</a>
+      .</li>
+      <li> To start a virtual machine, use the instructions at
+	<a href="https://www.osboxes.org/guide/">guide</a>
+      <li> To login use the credentials from the
+	<a href="http://www.osboxes.org/faqs/">osboxes FAQ</a> </li>
+      </ul>
+  </li>
+</ul>
+
+<h2>3. A Native Geant4 Installation</h2>
+<br><b>An Outline of the Installation Process</b>
+<br>
+How to install Geant4 on your laptop or your desktop in your university/institute<br>
+
+If you have a Linux installation from the last 3-5 years, it should be
+possible to install a recent Geant4 (from the last 3 years) directly, without
+a virtual machine.
+
+To make sure that this is possible, see below for the requirements for the compiler version.
+    
+The method is explained fully the Installation Instructions on the Geant4 web
+site.
+This document prepares you and gives a few shortcuts<br>
+
+<ul>
+  <li>First check the <b>compiler</b> that you have on your system
+    <ul>
+      <li><em>gcc --version</em> on Linux </li>
+      
+      <li><em>cl -v</em>on Windows </li>
+      <li><em>clang --version</em> on MacOS</li>
+    </ul>
+  </li>
+  
+  <li>Choose the <u>version of Geant4</u> to install on your system.
+    You should choose a version of Geant4 which supports the compiler provided
+    on your system.  ( Some newer versions of Geant4 do not support compilers
+    available on older systems. )
+    <ul>
+      <li> If the compiler and its version are supported by the latest
+	Geant4 production release, then use it!  As Geant4 10.4 is brand new
+	 ( December 2017 ), let's use Geant4 10.3 instead.
+         <li> Geant4 10.3 requires gcc version 4.8.5 or higher, tested with 4.9.3,
+           5.3, 6.3 </li>
+	 <li> If you have gcc version 7.2, then use the newest version, Geant4
+	 10.4 (as this is the only version that supports it.).</li>
+         <li> If you have a different subversion, e.g. 5.1, 5.2, 6.1, 6.2 or
+   	      7.1 it is likely but not certain that you it will work without a
+   	   problem. </li>
+	 <li> You can find the latest version of Geant4 at the Download
+	 at <a href="http://cern.ch/geant4/support/download.shtml">
+	   http://geant4.web.cern.ch/geant4/support/download.shtml
+	 </a>
+	   and the linked Release Notes
+	   explain which compiler versions are supported. )
+      </li>
+      <li><b>If the compiler is not supported</b>, then check the previous versions of Geant4 starting.
+	A likely candidate is release 10.1 from December 2014, which did not
+	require C++ 11 support, and thus supported older compilers. 
+	<ul>
+	  <li>Check the panel on the right of the Download page for the entry
+	    <a href="http://geant4.web.cern.ch/geant4/support/source_archive.shtml">
+	      Previous Releases</a> of Geant4 (since release 9.6)</li>
+	  <li>As the second most recent release is the top entry, so you many need to scroll down
+		    to find the older entries.</li>
+	</ul>
+      </li>
+      
+      <li><b>Important:</b> you should always get the newest patch for the release
+	you intend to use - for example there were 2 patches to release 10.2 in
+	2016.&nbsp; Get the last one, now 10.2-patch-02</li>
+    </ul>
+  </li>    
+  <li> The <b>installation guide</b> is the recommended way to install Geant4.
+    <ul>
+      <li> Locate the official installation guide in the "Support" pages of the Geant4 web site
+	<ul>
+             <li>for the latest release, which is currently Geant4 10.3 (patch 3), it is
+	       at <a href="http://geant4.web.cern.ch/geant4/UserDocumentation/UsersGuides/InstallationGuide/html/index.html">http://geant4.web.cern.ch/geant4/UserDocumentation/UsersGuides/InstallationGuide/html/index.html</a></li>
+	     <li>for previous versions of Geant4 you can find it
+	       at <a href="http://geant4.cern.ch/support/userdocuments.shtml">http://geant4.cern.ch/support/userdocuments.shtml</a></li>
+	</ul>
+      </li>
+      <li> I suggest that you download the PDF version of the istallation guide
+	for the version of Geant4 that you will use. After this you can search
+	it - or just use it as backup.
+      </li> 
+      <li> I will not repeat information which is in the guide - this
+	page is just an outline!</li>
+      <li>When you have a question, please look for an answer in the
+	      relevant section and then ask if you do not find an answer!</li>
+    </ul>
+  </li>
+
+  <li> Some key points for particular systems.
+    <ul>
+      <li><b>Linux Installation</b>
+	<ul>
+	  <li>CMake: Make sure that you have 'cmake', and that its version is at least 3.3 (for the latest
+	    Geant4). You can find links where to get it, and guidance in the
+	    Installation guide ( and cmake.org )
+	  </li> 
+	  <li>Source code - download either the 'tar.gz' file (preferred) or
+	    the zip file if you can use 'unzip'
+	  </li>
+	  <li> Unpack the source code</li>
+	  <li>Create a build directory</li>
+	  <li>Your questions / feedback below<ul><li>Q:</li></ul></li></ul>
+      </li>
+  
+      <li><b>Mac</b>
+	<ul>
+	  <li>Get Xcode</li>
+	  <li>Get Command Line Tools for Xcode</li>
+	  <li>Check your cmake version &amp; get newer one if needed</li>
+	  <li>Rest is same as Linux</li
+				     <li>Questions / feedback<ul><li><br/></li></ul></li></ul></li>
+	
+      <li><b>Windows</b>
+	<ul><li>Outline of process
+	    <ul>
+	      <li>Get Visual Express - either version 2015 (preferred) or 2013</li>
+	      <li>Use Visual Express to install 'Visual C++'.</li>
+	      <li>Check section 2.2 of the Installation Guide</li>
+	      <li>Source code - download either the 'tar.gz' file or the zip
+		file</li>
+	    </ul>
+	  </li>
+	  <li>Screenshots for installing Geant4 on Windows with Visual C++
+	    <ul>
+	      <li><a href="http://www2.warwick.ac.uk/fac/sci/physics/staff/research/bmorgan/geant4/installingonwindows/">http://www2.warwick.ac.uk/fac/sci/physics/staff/research/bmorgan/geant4/installingonwindows/</a></li>
+	      <li>Note: this is an older version of Geant4, release 9.5, but
+		the process should remain very similar</li>
+	  </ul>														  </li>
+	  <li>Your questions / feedback below<ul><li><br/></li></ul></li></ul>
+	  
+<li><b>Resources &amp; Alternative sources</b><ul><li>Forum for questions on Geant4 installation<ul><li>Anyone can read or search the questions / answers / discussions on the Geant4 User Forum at <a href="http://hypernews.slac.stanford.edu/HyperNews/geant4/get/installconfig.html">http://hypernews.slac.stanford.edu/HyperNews/geant4/get/installconfig.html</a></li
+><li>To ask questions (on the Forum) you will need to register.</li></ul
+></li
+><li>Youtube (experimental)<ul><li>Youtube video about installing older Geant4 version (9.6) on Scientific Linux (version 6.3) can be found at <a href="https://www.youtube.com/watch?v=EdC3CZeo7fc">https://www.youtube.com/watch?v=EdC3CZeo7fc</a></li
+><li>Basic tutorial on C and C++ - video <a href="https://www.youtube.com/watch?v=4VohPGk7Vfg">https://www.youtube.com/watch?v=4VohPGk7Vfg</a><br/><br
+/></li></ul
+></li></ul
+></li></ul
+>Please take yourself time to read <a href="http://titanpad.com/ep/pro-help/#deletionpolicy">http://titanpad.com/ep/pro-help/#deletionpolicy</a><br
+/><br
+/></body>
+</html>
