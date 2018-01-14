@@ -15,19 +15,11 @@ Run and examine a basic Geant4 example.
 
   To start the tutorial log in to your machine.
 
-  Then create an empty directory you will use for all exercises 
-  and use the commmand 'cd' to go to it.
-\verbatim
-        % mkdir g4asp2016
-        % cd g4asp2016
-\endverbatim
-
   To start Geant4 a set of environment variables should be defined. 
-  For the purposes of the tutorial, Geant4 and ROOT environment variables
+  For the purposes of the tutorial, the Geant4 environment variables
   are initialised in a shell script.
 
-  To make this easy, I suggest to you to create a link to this file in
-  your own directory, 
+  To simplify, I suggest to create a link to this file in your home directory, 
 \verbatim
        % ln -s ~/geant4/setupGeant4.sh ~/geant4.sh
 \endverbatim
@@ -49,7 +41,14 @@ Run and examine a basic Geant4 example.
   You need to run these two commands each time you login (or create a new window)
   in order to define the key installation variables for Geant4.
 
-*/ 
+  Then create an empty directory you will use for all exercises 
+  and use the commmand 'cd' to go to it.
+\verbatim
+        % cd ~/geant4
+        % mkdir g4asp2016
+        % cd    g4asp2016
+\endverbatim
+
 //  Excluded text: 
 //  Proposed alternative:  http://bit.ly/g4asp2016sh
 //
@@ -59,7 +58,15 @@ Run and examine a basic Geant4 example.
   You can check their values using the following:
 \verbatim
         % env | grep G4
-        % env | grep ROOT
+\endverbatim
+
+  One final thing before starting the main part.
+
+  Please open a new terminal and use it to download a Java file for G4 Visualisation
+\verbatim
+        % cd
+        % cd   Downloads
+        % curl -O http://www.slac.stanford.edu/~perl/HepRApp/HepRApp.jar
 \endverbatim
 
 \section s3 PRACTICE
@@ -74,6 +81,7 @@ directories.
 
         % echo $G4SYSTEM
         % echo $G4WORKDIR
+        $ echo $G4BIN
 \endverbatim
 
    //   % echo $CLHEP_BASE_DIR
@@ -84,8 +92,8 @@ directories.
 \verbatim
         % cp -r $G4INSTALL_DIR/examples/basic/B1 ./
         % cd B1
-        % gmake
-        % ls -l 
+        % gmake       
+        % ls -l
         % ls $G4WORKDIR 
         % ls -l $G4WORKDIR/bin/Linux-g++/
         % $G4WORKDIR/bin/Linux-g++/exampleB1 

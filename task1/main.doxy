@@ -3,96 +3,114 @@
 /**
  \mainpage task1 Task 1 Exercises Geant4 Physics
 
-\section s1 OBJECTIVE
+\section s1 OBJECTIVE of task 1
 
 Understand of processes and models active in one physics list
 
   - Check which processes are attached to pion, proton, and neutron
 
 Visualize hadronic showers, and get impression on difference of EM and hadronic 
-showers.
-
+showers:
   - shower shape
   - shower start
   - particle composition of showers
- 
+
 \section s2 HOW
 
   - prepare the environment (tell the Geant4 build system where to find things):
 \verbatim
-       % source ~/geant4.sh
+       $ source ~/geant4.sh
 \endverbatim
-
-    If this does not work, instead say
+    Please note: you do not type the '$' dollar character.  This represents
+    the prompt that the program running on your computer (called the 'shell')
+    gives you when it is waiting for your input.
+    
+    If this does not work, instead say  ( I omit the '$' prompt to make it
+    easier to copy & paste longer lines )
 \verbatim
-       % source ~/geant4/setupG4.sh
+         source ~/geant4/setupG4.sh
 \endverbatim
-
+  - change directory to your working directory
+\verbatim
+       $ cd ~/geant4
+       $ mkdir -p g4asp2016
+       $ cd g4asp2016	
+\endverbatim    
   - get the source code of the task1
 \verbatim
-	% wget -O task1.tgz http://bit.ly/g4asp16task1
+	$ curl -O task1.tgz http://bit.ly/g4asp16task1
 \endverbatim
     or if you prefer the full URL (to copy and paste)
 \verbatim
-        % wget https://dl.dropboxusercontent.com/u/540317/ASP2016/Tasks-source/task1.tgz
+          curl -O https://dl.dropboxusercontent.com/u/540317/ASP2016/Tasks-source/task1.tgz
 \endverbatim
 
   - check to see that you succeeded to download this file:
 \verbatim
-        % ls -l 
-        % ls -l task1.tgz
+        $ ls -l task1.tgz
+        $ ls -l 
 \endverbatim
 You should expect to see output similar to the following (this is in the
-Dropbox directory on August 10th at 8:15 UTC: 
+Dropbox directory on August 10th at 8:15 UTC, but the size can be different) : 
 \verbatim
-   % ls -l
-   total 176
-   -rw-r--r--  1 japost  staff  13570 Aug 09 10:37 task1.tgz
-   -rw-r--r--  1 japost  staff  41902 Aug 09 16:13 task2.gtz
-   -rw-r--r--  1 japost  staff  28005 Aug 09 16:13 task3.gtz
+        $ ls -l
+        total 176
+        -rw-r--r--  1 japost  staff  13570 Aug 09 10:37 task1.tgz
 \endverbatim
 
-  - unpack it
+  - unpack the archive file
 \verbatim
-	% tar -xzf task1.tgz
+	$ tar xvf task1.tgz
 \endverbatim
-
-  - see what it has created in your directory:
+    You should see something like the following:
 \verbatim
-	% ls
-        % ls task1
+        % tar xvf task1.gtz
+	x task1/ 
+	x task1/GNUmakefile
+	x task1/include/
+	x task1/particleColour.mac
+	x task1/src/
+        ...
+\endverbatim
+  - check what it has created in your directory:
+\verbatim
+        $ ls task1
+	$ ls
 \endverbatim
 
   - compile and generate an executable:
 \verbatim
-        % cd task1
-	% make
+        $ cd task1
+	$ make
 \endverbatim
-  - and run it: 
+  - and finaly run it: 
 \verbatim
-	% $G4WORKDIR/bin/$G4SYSTEM/task1
+	$ $G4WORKDIR/bin/$G4SYSTEM/task1
 \endverbatim
     I suggest that make this directory part of your path:
 \verbatim
-	% export G4BIN=$G4WORKDIR/bin/$G4SYSTEM
-	% export PATH=${PATH}:$G4BIN
+	$ export G4BIN=$G4WORKDIR/bin/$G4SYSTEM
 \endverbatim
-    The first line allows you to say
+    This line allows you to say
 \verbatim
-        % $G4BIN/task1 
+        $ $G4BIN/task1 
 \endverbatim
-    and the second 
+    You can also make it even simpler to run a Geant4 program compiled this
+    way - by adding it to your path:
 \verbatim
-	% task1
+	$ export PATH=${PATH}:$G4BIN
+\endverbatim
+\verbatim
+	$ task1
 \endverbatim
 
 ( Alternatively you can use one command to enable the second: 
 \verbatim
-	% export PATH=${PATH}:$G4WORKDIR/bin/$G4SYSTEM/
+	$ export PATH=${PATH}:$G4WORKDIR/bin/$G4SYSTEM/
 \endverbatim
     so you can only say
 \verbatim
-	% task1
+	$ task1
 \endverbatim
 )
 
@@ -124,7 +142,7 @@ Dropbox directory on August 10th at 8:15 UTC:
      understand which models are used for inelastic interactions. To get this
      output, you have to start a run:
      \verbatim
-        % $G4BIN/task1
+        $ $G4BIN/task1
       at the prompt type
           /run/beamOn 0
      \endverbatim

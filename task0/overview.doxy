@@ -1,15 +1,16 @@
-// $Id: exerciseDocu.doxy 62 2010-01-21 15:38:01Z schaelic $
+// $Id: $
 
 /**
  \page overview Overview of Geant4 tasks
-<h3 class="blue" align="center">African School of Physics</h3> 
-<h3 class="red" align="center">ASP2014 - Dakar (Senegal) - August 3rd to 22nd, 2014</h3>
+<h3 class="blue" align="center">African School of Physics 2016</h3> 
+<h3 class="red" align="center">ASP2016 - Kigali (Rwanda) - August 1st to 19th, 2016</h3>
 
  \section sec1 Geant4 Tasks
 
  \subsection ssec0 Task 0 - Introduction to Geant4
 
    - how to compile and run the example programs
+   - basic visualization
    - where to find help
 
  \subsection ssec1 Task 1 - Physics

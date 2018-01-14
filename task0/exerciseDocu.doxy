@@ -1,20 +1,20 @@
 // $Id: exerciseDocu.doxy 118 2010-02-03 15:02:48Z gunter $
 
 /**
- \page docu Task 0.b Exercises on Documentation
+ \page docu Task 0.c Exercises on Documentation
 
- \section ex1a Exercise 0.4
+ \section ex1a Exercise 0.5
 
  Go to the Geant4 homepage http://cern.ch/geant4 .
   - Locate the "User's Guide: For Application Developers".
 
- \section ex1b Exercise 0.5
+ \section ex1b Exercise 0.6
 
  Have a look to section "2.1.  How to Define the main() Program" of the "User's Guide: For Application Developers".
 
   - What are the three mandatory User Classes?
 
- \section ex2a Exercise 0.6
+ \section ex2a Exercise 0.7
 
   On the geant4 homepage http://cern.ch/geant4 , where do you find the links to 
    - <a href="http://www-geant4.kek.jp/LXR">LXR code browser</a>
@@ -22,12 +22,10 @@
    - <a href="http://geant4.cern.ch/bin/SRM/G4GenDoc.csh?flag=1">Software Reference Manual</a>
    - <a href="http://hypernews.slac.stanford.edu/HyperNews/geant4/cindex">HyperNews user forum</a>
 
- \section ex2b Exercise 0.7
+ \section ex2b Exercise 0.8
 
   Where would you look for a description of Geant4 or CLHEP classes?
    - What are the arguments to the constructor of G4PVPlacement?
    - What method provides the absolute value of the G4ThreeVector?
-
-
 
 */

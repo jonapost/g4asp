@@ -39,17 +39,12 @@ If this does not work, please go back to task 0 and make sure that your setup is
 
 Then get the source file
 \verbatim
-    % wget -O task2.tgz http://bit.ly/g4asp14t2
+    % curl -O https://dl.dropboxusercontent.com/u/540317/ASP2016/Tasks-source/task2.gtz
 \endverbatim
-In case this fails please try instead:
+
+Else try
 \verbatim
-    % wget http://bit.ly/g4asp14t2
-    % ls -l 
-    % mv g4asp14t2 task2.tgz
-\endverbatim
-Else you do the same by copying and pasting the full path (if you are very security conscious e.g.) : 
-\verbatim
-    % wget https://dl.dropboxusercontent.com/u/540317/ASP2014/Tasks-source/task2.tgz
+    % curl -O https://dl.dropboxusercontent.com/u/540317/ASP2014/Tasks-source/task2.tgz
 \endverbatim
 
 Now that you have the source code, you can extract it from the tar file, change into its directory and compile/link it:

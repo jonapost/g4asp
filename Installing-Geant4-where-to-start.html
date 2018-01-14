@@ -27,9 +27,10 @@ key pieces needed to create an installation on your own system.
 
   <li> Obtain a Virtual Machine 'player'. 
     You can use either the free
-       <a href="https://www.virtualbox.org/">Virtual Box</a> software    
+       <a href="https://www.virtualbox.org/">Virtual Box</a> software (recommended)
        or VMware software: <a href="https://www.vmware.com/products/workstation-player.html"> Workstation Player</a> on Windows, or
      <a href="https://www.vmware.com/products/fusion.html">Fusion</a> on Mac.
+     The VMware software have evaluation versions (free for 30 days.)
 
     For further details see http://geant4.in2p3.fr/spip.php?article65 .
   </li>
@@ -41,15 +42,30 @@ key pieces needed to create an installation on your own system.
       ftp://ftp.cenbg.in2p3.fr/info/Vmware/geant4.10.03.p02/ </a>
   </li>
 
-  <li> Simple instructions on opening an image using Virtual Box can be found
-	at <a href="https://www.osboxes.org/guide/">https://www.osboxes.org/guide/</a>
-        Don't forget to select 2048 MB of RAM memory.</li>   
+  <li> <b> PROBLEM: </b>It is not clear exactly how to open the Image using Virtual box or
+    VMware Fusion.
+    Current instructions on opening images include:
+    <ul>
+      <li> how to open an OSboxes image using Virtual Box can be found
+	at <a href="https://www.osboxes.org/guide/">https://www.osboxes.org/guide/</a> </li>
+      <li> It is not clear whether the Geant4 image includes any of these
+      types of files. </li>
+      <li> Note: Don't forget to select 2048 MB of RAM memory.</li>
+      <!---  <li> </li>  -->
+    </ul>
 </ul>
 
 <h2>2. Using a recent Linux Virtual Machine, and building Geant4 inside it</h2>
 
 This is a hybrid method, which requires less disk space than the pre-built
-Geant4 virtual machine, ( approximately 5 GBytes ), and uses 
+Geant4 virtual machine, ( approximately 5 GBytes ), and uses a recent Linux
+distribution.
+
+This is the preferred method for a Windows machine which has less available
+disk space (i.e. less than 40 GBytes. )
+
+If you already have a recent Linux installation on your system, this may not be
+necessary - see whether option 3 works instead.
 
 <ul>
   <li> Obtain a Virtual Machine 'player'. See above (option 1) how to do
@@ -66,8 +82,13 @@ Geant4 virtual machine, ( approximately 5 GBytes ), and uses
 	<a href="https://www.osboxes.org/guide/">guide</a>
       <li> To login use the credentials from the
 	<a href="http://www.osboxes.org/faqs/">osboxes FAQ</a> </li>
-      </ul>
-  </li>
+     </ul>
+   </li>
+  <li> Open a 'terminal' in your Linux installation </li>
+  <li> Check that you can find the compiler (<em>gcc</em>) </li>
+  <li> Proceed with the installation as in Option 3 - you have a working
+  Linux distribution.</li>
+  <li> </li>  
 </ul>
 
 <h2>3. A Native Geant4 Installation</h2>
@@ -110,30 +131,35 @@ This document prepares you and gives a few shortcuts<br>
          <li> If you have a different subversion, e.g. 5.1, 5.2, 6.1, 6.2 or
    	      7.1 it is likely but not certain that you it will work without a
    	   problem. </li>
-	 <li> You can find the latest version of Geant4 at the Download
-	 at <a href="http://cern.ch/geant4/support/download.shtml">
-	   http://geant4.web.cern.ch/geant4/support/download.shtml
-	 </a>
-	   and the linked Release Notes
-	   explain which compiler versions are supported. )
-      </li>
-      <li><b>If the compiler is not supported</b>, then check the previous versions of Geant4 starting.
+      </ul>
+    </li>
+  <li> You can find the latest version of Geant4 at the
+    at <a href="http://cern.ch/geant4/support/download.shtml">
+       Download area
+    <!---  http://geant4.web.cern.ch/geant4/support/download.shtml -->
+    </a> or following the Download link in the home page of the Geant4 web site.
+        The <a href="http://geant4.web.cern.ch/geant4/support/ReleaseNotes4.10.4.html">Release
+         Notes</a> document which compiler versions are supported. )
+  </li>
+  <li>If <b>your compiler is not supported</b>, then check the previous versions of Geant4.
 	A likely candidate is release 10.1 from December 2014, which did not
 	require C++ 11 support, and thus supported older compilers. 
-	<ul>
-	  <li>Check the panel on the right of the Download page for the entry
-	    <a href="http://geant4.web.cern.ch/geant4/support/source_archive.shtml">
-	      Previous Releases</a> of Geant4 (since release 9.6)</li>
-	  <li>As the second most recent release is the top entry, so you many need to scroll down
-		    to find the older entries.</li>
-	</ul>
-      </li>
-      
-      <li><b>Important:</b> you should always get the newest patch for the release
-	you intend to use - for example there were 2 patches to release 10.2 in
-	2016.&nbsp; Get the last one, now 10.2-patch-02</li>
+    <ul>
+      <li>For Geant4 10.3 or earlier versions, check the panel on the right of
+      the Download page for the entry
+	<a href="http://geant4.web.cern.ch/geant4/support/source_archive.shtml">
+	  Previous Releases</a> of Geant4 (since release 9.6)</li>
+      <li>The second most recent release is the top entry, so you many need to scroll down
+	to find the older entries.</li>
     </ul>
-  </li>    
+  </li>
+      
+  <li><b>Important:</b> you should always get the newest patch for the release
+    you intend to use - for example there were 2 patches to release 10.2 in
+    2016.&nbsp; Get the last one, now 10.2-patch-02</li>
+  </ul>
+ <h2> 4. The installation process </h2>
+  <ul>
   <li> The <b>installation guide</b> is the recommended way to install Geant4.
     <ul>
       <li> Locate the official installation guide in the "Support" pages of the Geant4 web site
@@ -161,7 +187,8 @@ This document prepares you and gives a few shortcuts<br>
 	<ul>
 	  <li>CMake: Make sure that you have 'cmake', and that its version is at least 3.3 (for the latest
 	    Geant4). You can find links where to get it, and guidance in the
-	    Installation guide ( and cmake.org )
+	    Installation guide ( and cmake.org )  On Ubuntu and similar systems, you can
+	    simply say 'sudo apt get cmake' in a terminal to get it using apt-get.
 	  </li> 
 	  <li>Source code - download either the 'tar.gz' file (preferred) or
 	    the zip file if you can use 'unzip'
@@ -196,16 +223,21 @@ This document prepares you and gives a few shortcuts<br>
 		the process should remain very similar</li>
 	  </ul>														  </li>
 	  <li>Your questions / feedback below<ul><li><br/></li></ul></li></ul>
-	  
-<li><b>Resources &amp; Alternative sources</b><ul><li>Forum for questions on Geant4 installation<ul><li>Anyone can read or search the questions / answers / discussions on the Geant4 User Forum at <a href="http://hypernews.slac.stanford.edu/HyperNews/geant4/get/installconfig.html">http://hypernews.slac.stanford.edu/HyperNews/geant4/get/installconfig.html</a></li
-><li>To ask questions (on the Forum) you will need to register.</li></ul
-></li
-><li>Youtube (experimental)<ul><li>Youtube video about installing older Geant4 version (9.6) on Scientific Linux (version 6.3) can be found at <a href="https://www.youtube.com/watch?v=EdC3CZeo7fc">https://www.youtube.com/watch?v=EdC3CZeo7fc</a></li
-><li>Basic tutorial on C and C++ - video <a href="https://www.youtube.com/watch?v=4VohPGk7Vfg">https://www.youtube.com/watch?v=4VohPGk7Vfg</a><br/><br
-/></li></ul
-></li></ul
-></li></ul
->Please take yourself time to read <a href="http://titanpad.com/ep/pro-help/#deletionpolicy">http://titanpad.com/ep/pro-help/#deletionpolicy</a><br
-/><br
-/></body>
+      </ul>
+
+<h2>Resources &amp; Alternative sources</h2>
+	<ul>
+	  <li>Forum for questions on Geant4 installation<ul><li>Anyone can
+	  read or search the questions / answers / discussions on the Geant4
+	  User Forum
+	  at <a href="http://hypernews.slac.stanford.edu/HyperNews/geant4/get/installconfig.html">http://hypernews.slac.stanford.edu/HyperNews/geant4/get/installconfig.html</a>
+	  Note: To ask questions (on the Forum) you will need to register.</li></ul>
+
+	  <li>Youtube (experimental)
+	    <ul>
+	      <li>Youtube video about installing older Geant4 version (9.6) on Scientific Linux (version 6.3) can be found at <a href="https://www.youtube.com/watch?v=EdC3CZeo7fc">https://www.youtube.com/watch?v=EdC3CZeo7fc</a></li>
+	      <li>Basic tutorial on C and C++ - video <a href="https://www.youtube.com/watch?v=4VohPGk7Vfg">https://www.youtube.com/watch?v=4VohPGk7Vfg</a><br/>
+	      </ul>
+	    </li>
+</body>
 </html>
